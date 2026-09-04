@@ -1,0 +1,67 @@
+/* ============================================================
+   JoyCasino — надстройка: свои блоки, отличные от других сайтов.
+   Подключать последним, после style.css
+   ============================================================ */
+
+/* ---- Лента «Как зайти» в три шага ---- */
+.jc-steps{ max-width: 1000px; margin: 0 auto; padding: 6px 24px 46px; }
+.jc-steps__grid{
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-radius: 20px; overflow: hidden;
+  background: linear-gradient(180deg, rgba(245,211,135,.07), rgba(255,255,255,.014));
+  border: 1px solid rgba(245,211,135,.24);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 14px 34px rgba(0,0,0,.34);
+}
+.jc-step{ padding: 26px 24px; position: relative; }
+.jc-step + .jc-step::before{
+  content: ""; position: absolute; left: 0; top: 18%;
+  width: 1px; height: 64%; background: rgba(245,211,135,.2);
+}
+.jc-step__n{
+  display: inline-grid; place-items: center; width: 38px; height: 38px;
+  border-radius: 50%; margin-bottom: 13px;
+  background: linear-gradient(180deg, var(--jc-gold), var(--jc-gold-deep));
+  color: #1B1305; font-family: var(--lb-font-display, inherit);
+  font-weight: 700; font-size: 17px;
+}
+.jc-step h3{
+  font-family: var(--lb-font-display, inherit); font-size: 17px;
+  color: var(--jc-text); margin: 0 0 8px;
+}
+.jc-step p{ margin: 0; font-size: 14px; line-height: 1.6; color: var(--jc-text-soft); }
+@media (max-width: 780px){
+  .jc-steps__grid{ grid-template-columns: 1fr; }
+  .jc-step + .jc-step::before{ left: 12%; top: 0; width: 76%; height: 1px; }
+}
+
+/* ---- Таблица «Коротко о клубе» ---- */
+.jc-facts{ max-width: 880px; margin: 0 auto; padding: 0 24px; }
+.jc-facts__title{
+  text-align: center; font-family: var(--lb-font-display, inherit);
+  font-size: clamp(22px, 3vw, 34px); color: var(--jc-text); margin: 0 0 8px;
+}
+.jc-facts__title span{ color: var(--jc-gold); }
+.jc-facts__sub{ text-align: center; color: var(--jc-text-muted); font-size: 15px; margin: 0 0 28px; }
+.jc-facts table{
+  width: 100%; border-collapse: collapse; text-align: left;
+  border-radius: 18px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.jc-facts td{
+  padding: 16px 22px; font-size: 15px; line-height: 1.55;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.jc-facts tr:last-child td{ border-bottom: 0; }
+.jc-facts tr:nth-child(odd){ background: rgba(255,255,255,.028); }
+.jc-facts td:first-child{ color: var(--jc-text-muted); width: 40%; }
+.jc-facts td:last-child{ color: var(--jc-text); font-weight: 500; }
+.jc-facts b{ color: var(--jc-gold); }
+@media (max-width: 620px){
+  .jc-facts td{ display: block; padding: 6px 18px; width: 100% !important; }
+  .jc-facts tr{ display: block; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .jc-facts table{ border-radius: 14px; }
+}
+
+@media (min-width: 1500px){ body{ zoom: 1.15; } }
+@media (min-width: 1700px){ body{ zoom: 1.28; } }
+@media (min-width: 1900px){ body{ zoom: 1.42; } }
